@@ -1,0 +1,11 @@
+<h4>{{#validationError}}We couldn't save your coin{{/validationError}}</h4>
+{{#coin}}
+    <input type="text" placeholder="Name" name="name" value="{{name}}">
+    <input type="text" placeholder="imageUrl" name="imageUrl" value="{{imageUrl}}">
+    {{#from}}
+    <input type="text" placeholder="country" name="country" value="{{country}}">
+    <input type="text" placeholder="continent" name="continent" value="{{continent}}">
+    {{/from}}
+    <input type="text" placeholder="Year" name="year" value="{{year}}">
+    <input type="submit" name="submit" value="submit">
+{{/coin}}

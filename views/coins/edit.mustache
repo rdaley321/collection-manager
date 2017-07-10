@@ -1,0 +1,28 @@
+<a href="/">Homepage</a>
+
+<h1>Edit your coin</h1>
+
+<form class="" action="{{coin._id}}" method="post">
+  {{>coins/_form}}
+  <div>
+  {{#coin}}
+    <div class="coin">
+      <h2>Here is the coin</h2>
+      <div class="coin-name-div">
+        {{name}}
+      </div>
+      <img src="{{imageUrl}}" alt="coin image">
+      <div class="from">
+        {{#from}}
+          {{country}}, {{continent}}
+        {{/from}}
+      </div>
+      <div class="year">
+        {{year}}
+      </div>
+      <form class="" action="/delete" method="post">
+        <button type="submit" name="id" value="{{_id}}">Delete</button>
+      </form>
+  {{/coin}}
+</div>
+</form>
