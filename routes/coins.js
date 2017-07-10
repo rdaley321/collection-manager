@@ -7,7 +7,6 @@ router.get('/coins/:id', function(req, res) {
     console.log(coin)
     res.render('./coins/edit', {
       coin: coin,
-      from: from
     })
   })
 })
@@ -15,13 +14,13 @@ router.get('/coins/:id', function(req, res) {
 router.post('/coins/:id', function(req, res) {
   Coin.findOne({'_id': req.params.id}).then(function(coin) {
     coin.name = req.body.name
-    coin.from.push({country: req.body.country, continent: req.body.continent})
+    coin.from = {country: req.body.country, continent: req.body.continent}
     coin.imageUrl = req.body.imageUrl
     coin.year = req.body.year
     coin.save().then(function() {
       res.redirect('/coins/' + req.params.id)
     }).catch(function(validationError, coin, from) {
-      res.render('/coins/' + req.params.id, {
+      res.render('./coins/edit', {
         coin: coin,
         from: from,
         validationError: validationError

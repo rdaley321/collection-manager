@@ -17,7 +17,7 @@ router.post('/add', function(req, res) {
   console.log(req.body)
   const coin = new Coin()
   coin.name = req.body.name
-  coin.from.push({country: req.body.country, continent: req.body.continent})
+  coin.from = {country: req.body.country, continent: req.body.continent}
   coin.imageUrl = req.body.imageUrl
   coin.year = req.body.year
   coin.save().then(function(coin) {
